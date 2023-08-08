@@ -5,8 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import TopBar from "../components/shared/TopBar";
 import BottomBar from "../components/shared/BottomBar";
-import LeftSidebar from "../components/shared/LeftSideBar";
-import RightSideBar from "../components/shared/RightSideBar";
+import LeftSidebar from "../components/shared/LeftSidebar";
+import RightSidebar from "../components/shared/RightSidebar";
 
 import "../globals.css";
 
@@ -35,7 +35,7 @@ export default function RootLayout({
                   <section className="main-container">
                     <div className="w-full max-w-4xl">{children}</div>
                   </section>
-                  <RightSideBar />
+                  <RightSidebar />
                 </main>
                 <BottomBar />
               </div>
