@@ -18,7 +18,7 @@ const TopBar = () => {
         </p>
       </Link>
 
-      <div className="flex items-center gap-1">
+      {/* <div className="flex items-center gap-1">
         <div className="block md:hidden">
           <SignedIn>
             <SignOutButton>
@@ -33,7 +33,7 @@ const TopBar = () => {
             </SignOutButton>
           </SignedIn>
         </div>
-      </div>
+      </div> */}
 
       <OrganizationSwitcher
         appearance={{
