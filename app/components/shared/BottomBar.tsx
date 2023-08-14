@@ -1,7 +1,7 @@
 import React from "react";
 
-const BottomBar = () => {
-  return <div>BottomBar</div>;
+const Bottombar = () => {
+  return <div>Bottombar</div>;
 };
 
-export default BottomBar;
+export default Bottombar;
