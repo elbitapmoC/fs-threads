@@ -1,18 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import { sidebarLinks } from "@/constants";
 
-import { usePathname, useRouter } from "next/navigation";
-import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
-
-import Link from "next/link";
-
-const Bottombar = () => {
-  const router = useRouter();
+function Bottombar() {
   const pathname = usePathname();
-
-  const { userId } = useAuth();
 
   return (
     <section className="bottombar">
@@ -22,45 +17,29 @@ const Bottombar = () => {
             (pathname.includes(link.route) && link.route.length > 1) ||
             pathname === link.route;
 
-          if (link.route === "/profile") link.route = `${link.route}/${userId}`;
-
           return (
             <Link
               href={link.route}
               key={link.label}
-              className={`leftsidebar_link ${isActive && "bg-primary-500 "}`}
+              className={`bottombar_link ${isActive && "bg-primary-500"}`}
             >
               <Image
                 src={link.imgURL}
                 alt={link.label}
-                width={24}
-                height={24}
+                width={16}
+                height={16}
+                className="object-contain"
               />
 
-              <p className="text-light-1 max-lg:hidden">{link.label}</p>
+              <p className="text-subtle-medium text-light-1 max-sm:hidden">
+                {link.label.split(/\s+/)[0]}
+              </p>
             </Link>
           );
         })}
       </div>
-
-      <div className="mt-10 px-6">
-        <SignedIn>
-          <SignOutButton signOutCallback={() => router.push("/sign-in")}>
-            <div className="flex cursor-pointer gap-4 p-4">
-              <Image
-                src="/assets/logout.svg"
-                alt="logout"
-                width={24}
-                height={24}
-              />
-
-              <p className="text-light-2 max-lg:hidden">Logout</p>
-            </div>
-          </SignOutButton>
-        </SignedIn>
-      </div>
     </section>
   );
-};
+}
 
 export default Bottombar;

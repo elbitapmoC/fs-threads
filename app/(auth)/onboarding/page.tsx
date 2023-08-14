@@ -1,6 +1,6 @@
 async function Page() {
   return (
-    <main>
+    <main className="bg-dark-1">
       <h1 className="head-text">Onboarding</h1>
     </main>
   );
